@@ -1,16 +1,16 @@
-import time
+import glfw
 
 # class to implement a timer
 class Timer():
     # constructor method
     def __init__(self):
         # intialize the starting time to the current time
-        self.start = time.time()
+        self.start = glfw.get_time()
 
     # method to print and obtain the elapsed time
     def elapsed(self, should_print = False, should_print_fps = False):
         # calculate the elapsed time since the creation or the last reset in ms
-        dt = (time.time() - self.start) * 1000
+        dt = (glfw.get_time() - self.start) * 1000
 
         # print the time if it's instructed
         if should_print:
@@ -25,4 +25,4 @@ class Timer():
     # method to reset the timer
     def reset(self):
         # reset the starting time to the current time
-        self.start = time.time()
+        self.start = glfw.get_time()

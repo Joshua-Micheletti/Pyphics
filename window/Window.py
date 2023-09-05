@@ -4,6 +4,7 @@ from OpenGL.GL import *
 
 from utils.singleton.Singleton import Singleton
 from utils.ascii_colors.colors import colors
+from controller.Controller import Controller
 
 class Window(metaclass=Singleton):
     def __init__(self, width = 800, height = 600, name = "Pyphics", opengl_M = 4, opengl_m = 6):
@@ -52,11 +53,9 @@ class Window(metaclass=Singleton):
 # pass the key presses to the controller
 def key_callback(window, key, scancode, action, mods):
     if action == glfw.PRESS:
-        # Controller.getInstance().handle_key_press(key, mods, window)
-        pass
+        Controller().handle_key_press(key, mods)
     if action == glfw.RELEASE:
-        # Controller.getInstance().handle_key_release(key, mods)
-        pass
+        Controller().handle_key_release(key, mods)
 
 # handle the resizing of the window
 def framebuffer_size_callback(window, width, height):
